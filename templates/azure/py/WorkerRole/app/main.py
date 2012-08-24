@@ -10,9 +10,16 @@ BackgroundWorker.java. Retrieves data from Azure Blob Storage.
 import os
 import sys
 
+import socket
 import logging
-import base64
+from logentries import LeHandler
+if 'LOGENTRIES_ACCOUNT_KEY' in os.environ and 'LOGENTRIES_HOST' in os.environ:
+  logging.getLogger().addHandler(LeHandler(
+    os.environ['LOGENTRIES_ACCOUNT_KEY'],
+    os.environ.get('LOGENTRIES_HOST', socket.gethostname()) + '/{{ app_id }}'
+  ))
 
+import base64
 import json
 import wsgiref.handlers
 import webapp2

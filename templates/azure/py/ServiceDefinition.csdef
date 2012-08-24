@@ -33,6 +33,8 @@
                 </Variable>
                 <Variable name="AZURE_STORAGE_ACCOUNT_NAME" value="" />
                 <Variable name="AZURE_STORAGE_ACCESS_KEY" value="" />
+                <Variable name="LOGENTRIES_ACCOUNT_KEY" value="" />
+                <Variable name="LOGENTRIES_HOST" value="" />
             </Environment>
             <EntryPoint>
                 <ProgramEntryPoint commandLine="run.cmd" setReadyOnProcessStart="true" />

@@ -9,7 +9,17 @@ from datetime import datetime
 import logging
 import traceback
 
+import os
 import json
+
+import socket
+import logging
+from logentries import LeHandler
+if 'LOGENTRIES_ACCOUNT_KEY' in os.environ and 'LOGENTRIES_HOST' in os.environ:
+  logging.getLogger().addHandler(LeHandler(
+    os.environ['LOGENTRIES_ACCOUNT_KEY'],
+    os.environ.get('LOGENTRIES_HOST', socket.gethostname()) + '/{{ app_id }}'
+  ))
 
 from azure import blob, get_container, queue, get_queue
 import {{ namespace }}

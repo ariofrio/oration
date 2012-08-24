@@ -44,11 +44,22 @@ When you want to shut down the app, go to a Windows Azure Command Prompt and run
         <Variable name="AZURE_STORAGE_ACCOUNT_NAME" value="" />
         <Variable name="AZURE_STORAGE_ACCESS_KEY" value="" />
 
- 3. In a Windows Azure Command Prompt, run
+ 3. **Optionally,** you can look at the logs by signing up for a free account
+    at [LogEntries][], creating a "Host", and inserting your
+    [Account Key][logentries-accountkey] and the chosen "Host" name into
+    ServiceDefinition.csdef:
+
+        <Variable name="LOGENTRIES_ACCOUNT_KEY" value="" />
+        <Variable name="LOGENTRIES_HOST" value="" />
+
+  [logentries]: http://www.logentries.com/
+  [logentries-accountkey]: https://logentries.com/app/#s=account
+
+ 4. In a Windows Azure Command Prompt, run
 
         .\pack.cmd
 
- 4. [Create a cloud service][portal service] and upload the service package (.cspkg)
+ 5. [Create a cloud service][portal service] and upload the service package (.cspkg)
     and service configuration (ServiceConfiguration.Cloud.cscfg).
 
   [portal service]: https://manage.windowsazure.com/#Workspace/CloudServicesExtension/list
